@@ -32,28 +32,28 @@ public class RNEasyPrefModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void set(String key, String data) {
+    public void setString(String key, String data) {
         SharedPreferences.Editor editor = getEditor();
         editor.putString(key, data);
         editor.apply();
     }
 
     @ReactMethod
-    public void set(String key, boolean data) {
+    public void setBoolean(String key, boolean data) {
         SharedPreferences.Editor editor = getEditor();
         editor.putBoolean(key, data);
         editor.apply();
     }
 
     @ReactMethod
-    public void set(String key, int data) {
+    public void setInt(String key, int data) {
         SharedPreferences.Editor editor = getEditor();
         editor.putInt(key, data);
         editor.apply();
     }
 
     @ReactMethod
-    public void set(String key, float data) {
+    public void setFloat(String key, float data) {
         SharedPreferences.Editor editor = getEditor();
         editor.putFloat(key, data);
         editor.apply();

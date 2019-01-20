@@ -15,11 +15,38 @@ const getBoolean = async (key: string, defaultVal: any) => {
     }
 };
 
-const set = async (key, value) => {
-	RNEasyPref.set(key, value);
+const getString = async (key: string, defaultVal: string) => {
+    if (Platform.OS === 'ios') {
+        const value = await RNEasyPref.get(key);
+        if (value != undefined) {
+            return value;
+        }
+        return defaultVal;
+    } else {
+        console.warn("get string", key);
+        return RNEasyPref.getString(key, defaultVal);
+    }
+}
+
+const setString = async (key, value) => {
+    if (Platform.OS === 'ios') {
+        RNEasyPref.set(key, value);
+    } else {
+        RNEasyPref.setString(key, value);
+    }
+};
+
+const setBoolean = async (key, value) => {
+    if (Platform.OS === 'ios') {
+        RNEasyPref.set(key, value);
+    } else {
+        RNEasyPref.setBoolean(key, value);
+    }
 };
 
 export default {
     getBoolean,
-    set,
+    getString,
+    setString,
+    setBoolean,
 };
