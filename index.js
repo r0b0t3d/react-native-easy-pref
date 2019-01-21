@@ -23,7 +23,6 @@ const getString = async (key: string, defaultVal: string) => {
         }
         return defaultVal;
     } else {
-        console.warn("get string", key);
         return RNEasyPref.getString(key, defaultVal);
     }
 }
