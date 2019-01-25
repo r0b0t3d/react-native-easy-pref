@@ -27,6 +27,26 @@ const getString = async (key: string, defaultVal: string) => {
     }
 }
 
+const getInt = async (key: string, defaultVal: Number) => {
+    if (Platform.OS === 'ios') {
+        const value = await RNEasyPref.get(key);
+        if (value != undefined) {
+            return value;
+        }
+        return defaultVal;
+    } else {
+        return RNEasyPref.getInt(key, parseInt(defaultVal));
+    }
+}
+
+const setInt = async (key, value) => {
+    if (Platform.OS === 'ios') {
+        RNEasyPref.set(key, value);
+    } else {
+        RNEasyPref.setInt(key, value);
+    }
+};
+
 const setString = async (key, value) => {
     if (Platform.OS === 'ios') {
         RNEasyPref.set(key, value);
@@ -46,6 +66,8 @@ const setBoolean = async (key, value) => {
 export default {
     getBoolean,
     getString,
+    getInt,
+    setInt,
     setString,
     setBoolean,
 };
