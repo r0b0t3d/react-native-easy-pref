@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   RNEasyPref
                    DESC
-  s.homepage     = ""
+  s.homepage     = "https://www.linkedin.com/in/tuan-luong-anh/"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
