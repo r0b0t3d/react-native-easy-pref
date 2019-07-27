@@ -1,4 +1,3 @@
-
 import { NativeModules, Platform } from 'react-native';
 
 const { RNEasyPref } = NativeModules;
@@ -25,9 +24,9 @@ const getString = async (key: string, defaultVal: string) => {
     } else {
         return RNEasyPref.getString(key, defaultVal);
     }
-}
+};
 
-const getInt = async (key: string, defaultVal: Number) => {
+const getInt = async (key: string, defaultVal: string) => {
     if (Platform.OS === 'ios') {
         const value = await RNEasyPref.get(key);
         if (value != undefined) {
@@ -37,9 +36,9 @@ const getInt = async (key: string, defaultVal: Number) => {
     } else {
         return RNEasyPref.getInt(key, parseInt(defaultVal));
     }
-}
+};
 
-const setInt = async (key, value) => {
+const setInt = async (key: string, value: number) => {
     if (Platform.OS === 'ios') {
         RNEasyPref.set(key, value);
     } else {
@@ -47,7 +46,7 @@ const setInt = async (key, value) => {
     }
 };
 
-const setString = async (key, value) => {
+const setString = async (key: string, value: string) => {
     if (Platform.OS === 'ios') {
         RNEasyPref.set(key, value);
     } else {
@@ -55,7 +54,7 @@ const setString = async (key, value) => {
     }
 };
 
-const setBoolean = async (key, value) => {
+const setBoolean = async (key: string, value: string) => {
     if (Platform.OS === 'ios') {
         RNEasyPref.set(key, value);
     } else {

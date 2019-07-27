@@ -2,9 +2,20 @@
   "name": "react-native-easy-pref",
   "version": "1.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "eslint src/**/*.ts",
+    "fix-code": "prettier-eslint --write 'src/**/*.{ts,tsx}' ",
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "publish": "npm run prepare && npm run prepublishOnly"
   },
   "keywords": [
     "react-native"
@@ -13,5 +24,23 @@
   "license": "",
   "peerDependencies": {
     "react-native": ">=0.47.0"
-  }
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/react-native": "^0.60.2",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "react-native": ">=0.47.0",
+    "react-native-typescript-transformer": "^1.2.12",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }
